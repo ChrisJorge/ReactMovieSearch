@@ -1,6 +1,6 @@
 import React from 'react'
 import { useState, useEffect } from 'react'
-function Form(props) {
+function Form({movieSearch}) {
   const [formData, setFormData] = useState({ searchterm: "",});
 
   const handleChange = (event) => {
@@ -10,7 +10,7 @@ function Form(props) {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    props.moviesearch(formData.searchterm);
+    movieSearch(formData.searchterm);
   }
 
   return (
