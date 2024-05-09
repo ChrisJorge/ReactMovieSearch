@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import './App.css';
 import Form from './components/Form';
 import MovieDisplay from './components/MovieDisplay';
@@ -8,19 +8,30 @@ function App() {
 
   const [movie, setMovie] = useState(null);
 
-  const getMovie = async(movie) => {
-    const response = await fetch(
-      `http://www.omdbapi.com/?apikey=${apiKey}&t=${movie}`);
+  const getMovie = async(searchterm) => 
+  {
+    try{
+      const response = await fetch(
+        `http://www.omdbapi.com/?apikey=${apiKey}&t=${searchterm}`);
 
-    const data = await response.json();
+      const data = await response.json();
 
-    setMovie(data)
-  }
+      setMovie(data)
+    } 
+    catch (error) 
+    {
+      console.error(error)
+    }
+ }
+
+  useEffect(() => {
+    getMovie('Iron man')
+  }, []);
   return (
     <>
      <div className="app">
       <Form movieSearch = {getMovie}/>
-      <MovieDisplay/>
+      <MovieDisplay movie = {movie}/>
      </div>
     </>
   )
