@@ -4,7 +4,7 @@ import Form from './components/Form';
 import MovieDisplay from './components/MovieDisplay';
 
 function App() {
-  const apiKey = '79a88755'
+  const apiKey = import.meta.env.VITE_APIKEY
 
   const [movie, setMovie] = useState(null);
 
