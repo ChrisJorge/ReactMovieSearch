@@ -8,6 +8,7 @@ function MovieDisplay({movie}) {
         <h2>{movie.Genre}</h2>
         <img src={movie.Poster} alt={movie.Title}/>
         <h2>{movie.year}</h2>
+        <h2>{movie.plot}</h2>
       </>
     );
   };

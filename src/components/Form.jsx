@@ -4,7 +4,7 @@ function Form({movieSearch}) {
   const [formData, setFormData] = useState({ searchterm: "",});
 
   const handleChange = (event) => {
-    setFormData({...formData, [event.target.name]: event.target.value})
+    setFormData({...formData, [event.target.name]: event.target.value}) // Creating new formData object spread operator used to spread all part of object and reference in new place in memory
   }
 
   const handleSubmit = (event) => {

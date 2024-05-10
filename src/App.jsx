@@ -5,7 +5,7 @@ import MovieDisplay from './components/MovieDisplay';
 
 function App() {
   const apiKey = import.meta.env.VITE_APIKEY
-
+  let movies = ['spider man', 'iron man', 'batman', 'dark knight rises', 'fast&furious', 'deadpool', 'peaky blinders', 'oppenheimer']
   const [movie, setMovie] = useState(null);
 
   const getMovie = async(searchterm) => 
@@ -25,7 +25,8 @@ function App() {
  }
 
   useEffect(() => {
-    getMovie('Iron man')
+    let num = Math.floor(Math.random() * 8)
+    getMovie(movies[num])
   }, []);
   return (
     <>
